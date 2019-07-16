@@ -1,0 +1,41 @@
+vnote_backup_file_826537664 /home/mao/Github/notes/note/命令使用手册.md
+#### Linux command:
+1. nautilus /path/to/that/folder 从终端打开文件夹
+2. sudo nvidia-docker run -it --name tf -p 8888:8888 -p 6006:6006 -v /home/mao/data:/home/mao/data 413b9533f92a
+4. nohup jupyter lab --ip 0.0.0.0 --no-browser --port 8888 > jupyter_log 2> error_log &
+~~5. gsutil -m rsync -d -r data gs://mybucket/data~~
+6. sudo docker start tf
+7. sudo docker exec -it tf /bin/bash
+https://raw.githubusercontent.com/breakwa11/gfw_whitelist/master/whiteiplist.pac
+```
+git config --global user.email "mao@example.com"
+git config --global user.name "mao"
+git remote add origin https://github.com/user/repo.git    添加远程仓库url
+git remote -v    显示远程仓库url
+git push --set-upstream origin master   推送到远程仓库
+```
+~~8. nohup python3 downloadOI.py --mode train --classes "Person" > download_log 2> error_log &~~
+
+#### sourcegraph使用手册
+1. 搜索仓库   repo:^github\.com/docker/go$
+2. 搜索仓库里的函数     repo:^github\.com/tensorflow/models$ create_training_graph
+3. [逛Github不可缺少的插件(知乎)](https://zhuanlan.zhihu.com/p/44153011)
+
+#### DVC使用手册
+data version control:
+```
+1.      git init
+2.      dvc init
+3.      git commit -m "initialize DVC"
+以上三步为git和dvc的初始化
+```
+
+```
+4.      dvc add data/data.xml
+5.      git add data/.gitignore data/data.xml.dvc
+6.      git commit -m "add source data to DVC"
+以上三步为跟踪数据文件以及提交数据文件
+```
+
+#### git上传大文件报错:
+1. git一些报错解决方法    [每一项都亲测，保证不踩坑(知乎)](https://zhuanlan.zhihu.com/p/53961303)
