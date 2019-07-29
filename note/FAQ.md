@@ -14,3 +14,4 @@
 12. 作业提交的话，建一个仓库就好，文件夹的命名参考课程的章节名称，目录结构采用[这种方式](https://github.com/tensorflow/tensorflow/tree/master/tensorflow)
 13. 提问之前请多尝试，可以参考下，[我第一次是如何到stackoverflow上提问的](https://stackoverflow.com/questions/51340559/using-tensorflow-when-training-loss-cant-dropdown)，注意请自己多尝试，多用关键词去网上搜索
 14. 关于代码问题，请分享代码文件，使助教可以复现代码错误
+15. [课程参考资料](https://www.tinymind.cn/ai-materials/)
