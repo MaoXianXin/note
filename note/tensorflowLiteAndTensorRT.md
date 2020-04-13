@@ -1,8 +1,8 @@
-主要关注点在于model size和latency
+使用tensorflow lite的目的主要在于优化模型的体积和延迟,在牺牲一定精度的基础上
 
-考虑到模型训练图片的大小问题,我们采用ImageNet上训练好的MobileNet模型来做演示(为什么采用ImageNet的原因是,训练图片大小为224x224x3,眼睛可以很明显的认出图片的类别)
+考虑到模型训练图片的大小问题,我们采用ImageNet上训练好的MobileNetV2模型来做演示(为什么采用ImageNet的原因是,训练图片大小为224x224x3,眼睛可以很明显的认出图片的类别)
 
-训练好的MobileNet来自于keras的.h5文件,下面的代码是保存mobilenetv2.h5
+训练好的MobileNetV2[来自于keras的.h5文件](https://github.com/fchollet/deep-learning-models/releases),下面的代码是保存mobilenetv2.h5,[MobileNetV2的官方代码](https://github.com/keras-team/keras-applications/blob/master/keras_applications/mobilenet_v2.py)
 ```
 import os
 from tensorflow.keras.applications.mobilenet_v2 import MobileNetV2 as Net
@@ -148,7 +148,6 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input, decode_predictions
-import numpy as np
 
 # Load TFLite model and allocate tensors.
 interpreter = tf.lite.Interpreter(model_path="./model/fp32_frozen_graph.tflite")
@@ -203,7 +202,6 @@ import numpy as np
 import tensorflow as tf
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input, decode_predictions
-import numpy as np
 
 # Load TFLite model and allocate tensors.
 interpreter = tf.lite.Interpreter(model_path="./model/int8_frozen_graph.tflite")
@@ -351,7 +349,7 @@ print('average(sec):{:.2f},fps:{:.2f}'.format(mean_delta, fps))
 对于模型推断速度的比较,正常的fp32_frozen_graph.pb的FPS为272.44
                                                    fp32_frozen_grapn.tflite为63.26
                                                    int8_frozen_graph.tflite为1.06
-这个推断速度不一定准确,毕竟tflite是用于android等嵌入式设备的,说不定在desktop上的性能有损失
+tensorflow lite在desktop上调用不了GPU
 
 # pruning+quantization
 为了进一步压缩模型体积的大小,我们可以在训练过程中引入pruning,然后再进行quantization
@@ -682,7 +680,8 @@ Test loss: 0.6833566536903382
 Test accuracy: 0.7817
 
 ## 去除pruning wrapper
-```final_model = sparsity.strip_pruning(vgg16_pruned)
+```
+final_model = sparsity.strip_pruning(vgg16_pruned)
 final_model.summary()
 ```
 输出结果:
