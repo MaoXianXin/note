@@ -1,3 +1,8 @@
+# 为什么使用tensorflow lite
+可以看看下面的链接:
++ [TensorFlow Lite调研](https://zhuanlan.zhihu.com/p/44284855)
++ [Google I/O 2017推出的Tensorflow Lite有什么意义](https://www.zhihu.com/question/59994763)
+
 使用tensorflow lite的目的主要在于优化模型的体积和延迟,在牺牲一定精度的基础上
 
 考虑到模型训练图片的大小问题,我们采用ImageNet上训练好的MobileNetV2模型来做演示(为什么采用ImageNet的原因是,训练图片大小为224x224x3,眼睛可以很明显的认出图片的类别)
@@ -66,7 +71,7 @@ tflite_model = converter.convert()
 open("./model/fp32_frozen_graph.tflite", "wb").write(tflite_model)
 ```
 
-若要把fp32_frozen_graph.tflite转化成int8_frozen_graph.tflite,我们需要添加一步calibration,首先读取一张图片
+若要把fp32_frozen_graph.pb转化成int8_frozen_graph.tflite,我们需要添加一步calibration,首先读取一张图片
 ```
 import numpy as np
 import tensorflow as tf
