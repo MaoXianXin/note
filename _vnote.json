@@ -8,6 +8,12 @@
     "sub_directories": [
         {
             "name": "note"
+        },
+        {
+            "name": "blogs"
+        },
+        {
+            "name": "codeSnippet"
         }
     ],
     "tags": [
