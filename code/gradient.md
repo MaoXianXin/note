@@ -2,6 +2,13 @@
 ```
 import tensorflow as tf
 mnist = tf.keras.datasets.mnist
+gpus = tf.config.experimental.list_physical_devices('GPU')
+if gpus:
+    try:
+        for gpu in gpus:
+            tf.config.experimental.set_memory_growth(gpu, True)
+    except RuntimeError as e:
+        print(e)
 
 
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
@@ -57,3 +64,35 @@ class_weight: Optional dictionary mapping class indices (integers)
             "pay more attention" to samples from
             an under-represented class.
 ```
+
+## experiments
+### mnist
+```
+Epoch 65/70
+1313/1313 [==============================] - 1s 553us/step - loss: 0.0716 - accuracy: 0.9791 - val_loss: 0.0953 - val_accuracy: 0.9731
+Epoch 66/70
+1313/1313 [==============================] - 1s 575us/step - loss: 0.0703 - accuracy: 0.9805 - val_loss: 0.0960 - val_accuracy: 0.9719
+Epoch 67/70
+1313/1313 [==============================] - 1s 560us/step - loss: 0.0698 - accuracy: 0.9798 - val_loss: 0.0948 - val_accuracy: 0.9722
+Epoch 68/70
+1313/1313 [==============================] - 1s 571us/step - loss: 0.0680 - accuracy: 0.9795 - val_loss: 0.0946 - val_accuracy: 0.9725
+Epoch 69/70
+1313/1313 [==============================] - 1s 587us/step - loss: 0.0680 - accuracy: 0.9809 - val_loss: 0.0946 - val_accuracy: 0.9726
+Epoch 70/70
+1313/1313 [==============================] - 1s 570us/step - loss: 0.0680 - accuracy: 0.9800 - val_loss: 0.0940 - val_accuracy: 0.9721
+313/313 [==============================] - 0s 72us/step - loss: 0.0811 - accuracy: 0.9751
+```
+### cifar10
+```
+Epoch 67/70
+1094/1094 [==============================] - 1s 663us/step - loss: 1.2096 - accuracy: 0.5749 - val_loss: 1.4059 - val_accuracy: 0.5097
+Epoch 68/70
+1094/1094 [==============================] - 1s 653us/step - loss: 1.2039 - accuracy: 0.5757 - val_loss: 1.4473 - val_accuracy: 0.4998
+Epoch 69/70
+1094/1094 [==============================] - 1s 672us/step - loss: 1.2015 - accuracy: 0.5749 - val_loss: 1.4095 - val_accuracy: 0.5081
+Epoch 70/70
+1094/1094 [==============================] - 1s 652us/step - loss: 1.1947 - accuracy: 0.5806 - val_loss: 1.4026 - val_accuracy: 0.5138
+313/313 [==============================] - 0s 93us/step - loss: 1.3869 - accuracy: 0.5122
+```
+
+单纯的Dense在mnist上效果不错，但面对cifar10等开始变复杂的图片时，凸显出能力不足了
