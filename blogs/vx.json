@@ -3,56 +3,52 @@
     "files": [
         {
             "attachment_folder": "",
-            "attachments": [
-            ],
             "created_time": "2020-12-01T05:09:22Z",
-            "modified_time": "2020-12-04T05:28:26Z",
+            "id": "0",
+            "modified_time": "2020-12-01T05:09:22Z",
             "name": "mxnet.md",
             "tags": [
             ]
         },
         {
             "attachment_folder": "",
-            "attachments": [
-            ],
             "created_time": "2020-12-01T07:06:33Z",
-            "modified_time": "2020-12-01T07:14:50Z",
+            "id": "0",
+            "modified_time": "2020-12-01T07:06:33Z",
             "name": "knowledge.md",
             "tags": [
             ]
         },
         {
             "attachment_folder": "",
-            "attachments": [
-            ],
             "created_time": "2020-12-01T07:12:54Z",
-            "modified_time": "2020-12-01T14:02:36Z",
+            "id": "0",
+            "modified_time": "2020-12-01T07:12:54Z",
             "name": "resnet20_v1_experiments.md",
             "tags": [
             ]
         },
         {
             "attachment_folder": "",
-            "attachments": [
-            ],
             "created_time": "2020-12-29T03:42:42Z",
-            "modified_time": "2020-12-29T06:14:36Z",
+            "id": "0",
+            "modified_time": "2020-12-29T03:42:42Z",
             "name": "flower_photos聚类分析.md",
             "tags": [
             ]
         },
         {
             "attachment_folder": "",
-            "attachments": [
-            ],
             "created_time": "2020-12-30T09:00:05Z",
-            "modified_time": "2020-12-31T03:28:24Z",
+            "id": "0",
+            "modified_time": "2020-12-30T09:00:05Z",
             "name": "VGG网络研究.md",
             "tags": [
             ]
         }
     ],
-    "sub_directories": [
+    "folders": [
     ],
+    "id": "0",
     "version": "1"
 }
